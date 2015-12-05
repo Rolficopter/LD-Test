@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11438170}
   - 95: {fileID: 9523992}
   - 114: {fileID: 11493392}
+  - 114: {fileID: 11430818}
   m_Layer: 0
   m_Name: CoolerPlayer
   m_TagString: Untagged
@@ -182,6 +183,17 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11430818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86886ff95b03dd499128cb41f3915bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11438170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,12 +220,12 @@ MonoBehaviour:
   group: 0
   prefixBackup: -1
   observed: {fileID: 0}
-  synchronization: 2
+  synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 448814}
+  - {fileID: 11430818}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -260,14 +272,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 448814}
+      objectReference: {fileID: 11430818}
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: synchronization
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
