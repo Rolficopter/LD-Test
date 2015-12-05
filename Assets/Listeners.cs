@@ -16,6 +16,6 @@ public class Listeners : MonoBehaviour {
     void OnJoinedRoom()
     {
         Debug.Log("PETER");
-        PhotonNetwork.Instantiate("CoolerPlayer", Vector3.zero, Quaternion.identity, 0).GetComponent<Platformer2D;
+        PhotonNetwork.Instantiate("CoolerPlayer", Vector3.zero, Quaternion.identity, 0).GetComponent <UnityStandardAssets._2D.Platformer2DUserControl>().enabled = true;
     }
 }
