@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityStandardAssets._2D;
 
 public class Listeners : MonoBehaviour {
-
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +14,13 @@ public class Listeners : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        Debug.Log("PETER");
-        PhotonNetwork.Instantiate("CoolerPlayer", Vector3.zero, Quaternion.identity, 0).GetComponent <UnityStandardAssets._2D.Platformer2DUserControl>().enabled = true;
+        GameObject newPlayer = PhotonNetwork.Instantiate("CoolerPlayer", Vector3.zero, Quaternion.identity, 0);
+        newPlayer.GetComponent<Platformer2DUserControl>().enabled = true;
+
+        // follow new player
+        Camera mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        Camera2DFollow cameraFollow = mainCamera.GetComponent<Camera2DFollow>();
+        cameraFollow.target = newPlayer.transform;
+        cameraFollow.enabled = true;
     }
 }
