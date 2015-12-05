@@ -8,6 +8,7 @@ public class WalkingScript : StateMachineBehaviour {
     Transform rightPivot;
     Transform rightLeg;
 
+
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         leftPivot = animator.transform.Find("leg_left");
@@ -22,16 +23,14 @@ public class WalkingScript : StateMachineBehaviour {
 	//}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
+	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+    }
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
-
-        leftLeg.Rotate(leftLeg.forward, 20 * Time.deltaTime);
-        rightLeg.Rotate(leftLeg.forward, -20 * Time.deltaTime);
+        leftLeg.Rotate(leftLeg.forward, 5000 * Time.deltaTime);
+        rightLeg.Rotate(leftLeg.forward, -5000 * Time.deltaTime);
 
 	}
 
