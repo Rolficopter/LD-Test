@@ -20,7 +20,12 @@ public class WalkingScript : StateMachineBehaviour {
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        Debug.Log("Move");
+        Transform leftLeg = animator.transform.Find("leg_left");
+        Transform leftPivot = leftLeg.Find("Pivot");
+        Transform rightLeg = animator.transform.Find("leg_right");
+        Transform rightPivot = rightLeg.Find("Pivot");
+
+        leftLeg.RotateAround(leftPivot.position, Vector3.forward, 2);
 	}
 
 	// OnStateIK is called right after Animator.OnAnimatorIK(). Code that sets up animation IK (inverse kinematics) should be implemented here.
