@@ -44,6 +44,14 @@ namespace UnityStandardAssets._2D
             }
 
             // Set the vertical animation
+            if (m_Rigidbody2D.velocity != Vector2.zero)
+            {
+                m_Anim.SetBool("Walking", true);
+            }
+            else
+            {
+                m_Anim.SetBool("Walking", false);
+            }
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
