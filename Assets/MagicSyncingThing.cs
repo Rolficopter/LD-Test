@@ -10,8 +10,8 @@ public class MagicSyncingThing : MonoBehaviour {
     {
         if (!this.GetComponent<PhotonView>().isMine)
         {
-            transform.position = Vector3.Lerp(transform.position, this.correctPos, Time.deltaTime * 10);
-            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctRotate, Time.deltaTime * 10);
+            transform.position = Vector3.Lerp(transform.position, this.correctPos, Time.deltaTime * 7.5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctRotate, Time.deltaTime * 7.5f);
         }
     }
 
