@@ -822,9 +822,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damping: .400000006
-  lookAheadFactor: 3
-  lookAheadReturnSpeed: .5
-  lookAheadMoveThreshold: .100000001
+  lookAheadFactor: 100
+  lookAheadReturnSpeed: 1
+  lookAheadMoveThreshold: 1
 --- !u!1001 &2091750149
 Prefab:
   m_ObjectHideFlags: 0
