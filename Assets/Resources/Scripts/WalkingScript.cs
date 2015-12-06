@@ -8,6 +8,9 @@ public class WalkingScript : StateMachineBehaviour {
     Transform rightPivot;
     Transform rightLeg;
 
+    float leftZ, rightZ;
+    bool leftGoingLeft, rightGoingLeft = true;
+
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -29,8 +32,42 @@ public class WalkingScript : StateMachineBehaviour {
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        leftLeg.Rotate(leftLeg.forward, 5000 * Time.deltaTime);
-        rightLeg.Rotate(rightLeg.forward, -5000 * Time.deltaTime);
+        if (leftGoingLeft)
+        {
+            leftZ += Time.deltaTime * 200 * animator.GetFloat("Velocity");
+            if (leftZ > 45)
+            {
+                leftGoingLeft = false;
+            }
+        }
+        else
+        {
+            leftZ -= Time.deltaTime * 200 * animator.GetFloat("Velocity");
+            if (leftZ < -45)
+            {
+                leftGoingLeft = true;
+            }
+        }
+        leftLeg.eulerAngles = new Vector3(0, 0, leftZ);
+
+        if (rightGoingLeft)
+        {
+            rightZ += Time.deltaTime * 200 * animator.GetFloat("Velocity");
+            if (rightZ > 45)
+            {
+                rightGoingLeft = false;
+            }
+        }
+        else
+        {
+            rightZ -= Time.deltaTime * 200 * animator.GetFloat("Velocity");
+            if (rightZ < -45)
+            {
+                rightGoingLeft = true;
+            }
+        }
+
+        rightLeg.eulerAngles = new Vector3(0, 0, rightZ);
 
 	}
 
