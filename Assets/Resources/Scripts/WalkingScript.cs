@@ -30,7 +30,7 @@ public class WalkingScript : StateMachineBehaviour {
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         leftLeg.Rotate(leftLeg.forward, 5000 * Time.deltaTime);
-        rightLeg.Rotate(leftLeg.forward, -5000 * Time.deltaTime);
+        rightLeg.Rotate(rightLeg.forward, -5000 * Time.deltaTime);
 
 	}
 
