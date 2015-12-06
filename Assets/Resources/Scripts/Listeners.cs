@@ -2,7 +2,7 @@
 using UnityStandardAssets._2D;
 
 public class Listeners : MonoBehaviour {
-    public LayerMask PlayerGroup = 1;
+    public LayerMask PlayerGroup = 0;
 
 	// Use this for initialization
 	void Start () {
