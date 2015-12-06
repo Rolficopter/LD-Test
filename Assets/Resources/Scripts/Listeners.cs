@@ -2,6 +2,8 @@
 using UnityStandardAssets._2D;
 
 public class Listeners : MonoBehaviour {
+    public LayerMask PlayerGroup = 1;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,15 +16,17 @@ public class Listeners : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        GameObject newPlayer = PhotonNetwork.Instantiate("CoolerPlayer", Vector3.zero, Quaternion.identity, 0);
-        newPlayer.GetComponent<Platformer2DUserControl>().enabled = true;
-        newPlayer.transform.position = this.GetRandomSpawn().position;
+        Vector3 spawnLocation = this.GetRandomSpawn().position;
+        GameObject newPlayer = PhotonNetwork.Instantiate("CoolerPlayer", spawnLocation, Quaternion.identity, PlayerGroup);
 
         // follow new player
         Camera mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         Camera2DFollow cameraFollow = mainCamera.GetComponent<Camera2DFollow>();
         cameraFollow.target = newPlayer.transform;
         cameraFollow.enabled = true;
+
+        // enable control
+        newPlayer.GetComponent<Platformer2DUserControl>().enabled = true;
     }
 
     private Transform GetRandomSpawn()
